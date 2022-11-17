@@ -73,7 +73,7 @@ public class RepetitiveEvent extends Event {
                         break;}
 
                 }
-                while (date.isAfter(nextDateStart.toLocalDate()));
+                while (date.isAfter(nextDateEnd.toLocalDate()));
                 }
         return occurs;
 
