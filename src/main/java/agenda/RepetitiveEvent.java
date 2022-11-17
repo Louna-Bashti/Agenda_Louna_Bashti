@@ -21,8 +21,12 @@ public class RepetitiveEvent extends Event {
      * <LI>ChronoUnit.MONTHS for monthly repetitions</LI>
      * </UL>
      */
+
+    private ChronoUnit frequency =
     public RepetitiveEvent(String title, LocalDateTime start, Duration duration, ChronoUnit frequency) {
         super(title, start, duration);
+
+
         // TODO : implémenter cette méthode
         throw new UnsupportedOperationException("Pas encore implémenté");
     }

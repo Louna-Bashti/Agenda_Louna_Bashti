@@ -1,6 +1,7 @@
 package agenda;
 
 import java.time.*;
+import java.time.temporal.Temporal;
 
 public class Event {
 
@@ -33,6 +34,8 @@ public class Event {
         this.myDuration = duration;
     }
 
+
+
     /**
      * Tests if an event occurs on a given day
      *
@@ -40,9 +43,15 @@ public class Event {
      * @return true if the event occurs on that day, false otherwise
      */
     public boolean isInDay(LocalDate aDay) {
-        // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        LocalDateTime end = getStart().plus(getDuration());
+        boolean occurs = false;
+        if (getStart().toLocalDate().isBefore(aDay) && end.toLocalDate().isAfter(aDay)) {occurs = true;}
+        else if (getStart().toLocalDate().isEqual(aDay) || end.toLocalDate().isEqual(aDay)) {occurs = true;}
+        else
+        {occurs = false;}
+        return occurs;
     }
+
    
     /**
      * @return the myTitle
@@ -64,6 +73,10 @@ public class Event {
      */
     public Duration getDuration() {
         return myDuration;
+    }
+
+    public String toString() {
+        return this.myTitle;
     }
 
    
